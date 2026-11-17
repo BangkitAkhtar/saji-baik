@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MealCopyController;
 use App\Http\Controllers\Admin\OutletController;
@@ -35,6 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/pesanan/{order:code}', [OrderController::class, 'show'])->name('orders.show');
     Route::post('/pesanan/{order:code}/batal', [OrderController::class, 'cancel'])->name('orders.cancel');
     Route::prefix('mitra')->middleware(EnsureAdmin::class)->name('admin.')->group(function () {
+        Route::post('/pelanggan/{customer}/pulihkan', [CustomerController::class, 'restore'])->withTrashed()->name('customers.restore');
+        Route::resource('/pelanggan', CustomerController::class)->parameters(['pelanggan' => 'customer'])->names('customers')->except(['show']);
         Route::get('/tim', [CreatorController::class, 'index'])->name('creators');
         Route::post('/tim/{creator}', [CreatorController::class, 'update'])->name('creators.update');
         Route::get('/', [AdminController::class, 'index'])->name('index');

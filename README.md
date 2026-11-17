@@ -9,7 +9,9 @@ Website Laravel untuk makanan harian yang lebih terjangkau bagi mahasiswa, peker
 - Registrasi, login, dan pesanan milik masing-masing pelanggan.
 - Pesan 1–2 porsi, pilih waktu ambil, pernyataan kebutuhan, bayar di outlet.
 - Kode pengambilan, pembatalan, dan pembaruan stok dalam transaksi database.
-- Dashboard admin khusus: ringkasan, pesanan, menu harian, outlet, laporan SDG 2 dan foto tim.
+- Dashboard admin khusus: ringkasan, pesanan, menu harian, outlet, laporan SDG 2, data pelanggan dan foto tim.
+- CRUD akun Admin/Pelanggan, pencarian dan filter akun, penonaktifan, pengarsipan serta pemulihan. Pendaftaran publik selalu membuat Pelanggan aktif.
+- Akun yang diarsipkan tidak dapat login, sementara riwayat pesanan tetap tersimpan. Admin tidak dapat menonaktifkan, menurunkan peran, atau menghapus akun yang sedang dipakainya.
 - Salin menu ke tanggal lain dengan stok baru tanpa mengubah pesanan sebelumnya.
 - Batas waktu ambil dan status Tidak diambil.
 - Laporan porsi diambil berdasarkan waktu selesai, filter tanggal, dan ekspor CSV.
@@ -67,7 +69,7 @@ Data database, .env, unggahan pribadi, cadangan, cache, log, dan vendor tidak di
 
 Seluruh outlet, harga, dan menu dalam seeder adalah ilustrasi dan belum menerima transaksi sungguhan. Nilai gizi adalah estimasi, bukan hasil uji laboratorium. Foto hanya ilustrasi penyajian.
 
-Foto area Alam Sutera dan gedung BINUS disediakan pengguna. Outlet Gading Serpong memakai outlet-illustration.png, gambar dapur warteg fiktif yang dibuat dengan AI. Seluruh data gerai tetap berupa contoh demonstrasi.
+Foto referensi tugu Alam Sutera dan gedung BINUS disediakan pengguna. Gambar gerai pada outlet-alam-sutera-ai.png dan outlet-kemanggisan-ai.png dibuat dengan AI menggunakan kedua referensi lokasi tersebut dan desain gerai Saji Baik. Outlet Gading Serpong memakai outlet-illustration.png. Komposisi menampilkan gerai krem-hijau di depan dan landmark di belakang, berupa visualisasi gerai fiktif.
 
 Sumber gambar menu contoh:
 - nasi-ayam.jpg: https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3cde3e28-af0a-4715-b618-0f3399599b2d_Go-Food-Merchant_20250506_094624.jpeg

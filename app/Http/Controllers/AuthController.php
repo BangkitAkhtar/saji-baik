@@ -25,7 +25,7 @@ class AuthController extends Controller
     public function authenticate(Request $request): RedirectResponse
     {
         $data = $request->validate(['email' => ['required', 'email'], 'password' => ['required', 'string']]);
-        if (! Auth::attempt($data, $request->boolean('remember'))) {
+        if (! Auth::attempt([...$data, 'is_active' => true], $request->boolean('remember'))) {
             throw ValidationException::withMessages(['email' => 'Email atau kata sandi belum sesuai.']);
         }
         $request->session()->regenerate();

@@ -19,7 +19,7 @@ class LoginController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $request->validate(['email' => ['required', 'email'], 'password' => ['required', 'string']]);
-        if (! Auth::attempt([...$data, 'is_admin' => true])) {
+        if (! Auth::attempt([...$data, 'is_admin' => true, 'is_active' => true])) {
             throw ValidationException::withMessages(['email' => 'Email atau kata sandi admin belum sesuai.']);
         }
         $request->session()->regenerate();
