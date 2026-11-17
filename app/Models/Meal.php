@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-#[Fillable(['outlet_id', 'name', 'slug', 'description', 'category', 'price', 'stock', 'available_date', 'pickup_start', 'pickup_end', 'components', 'allergens', 'calories', 'protein', 'image', 'is_active'])]
+#[Fillable(['outlet_id', 'name', 'slug', 'description', 'category', 'price', 'stock', 'available_date', 'pickup_start', 'pickup_end', 'components', 'allergens', 'calories', 'protein', 'image', 'is_active', 'source_meal_id'])]
 class Meal extends Model
 {
     use HasFactory;
@@ -40,7 +40,7 @@ class Meal extends Model
         $start = Carbon::parse($this->available_date->format('Y-m-d').' '.$this->pickup_start);
         $end = Carbon::parse($this->available_date->format('Y-m-d').' '.$this->pickup_end);
         $slots = [];
-        while ($start->lte($end)) {
+        while ($start->lt($end)) {
             if ($start->gt(now()->addMinutes(15))) {
                 $slots[] = $start->format('H:i');
             }

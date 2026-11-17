@@ -10,7 +10,7 @@
     <div class="allergen"><strong>Informasi alergen</strong><p>Mengandung: {{ $meal->allergens }}. Dapur bersama dapat memiliki kontak silang. Jika punya alergi, konfirmasi ke outlet sebelum membeli.</p></div>
     <div class="pickup-summary"><x-icon name="pin"/><div><strong>{{ $meal->outlet->name }}</strong><p>{{ $meal->outlet->address }}</p><span><x-icon name="clock"/> {{ $meal->available_date->translatedFormat('d F Y') }} · {{ $meal->pickup_start }}–{{ $meal->pickup_end }} WIB</span></div></div>
     @if($meal->canOrder())<div class="availability"><span class="live-dot"></span> Masih ada {{ $meal->stock }} porsi</div><a class="button full" href="{{ route('orders.create',$meal->slug) }}">Pesan & ambil di outlet <x-icon name="arrow"/></a>@else<div class="alert">Menu ini sedang tidak tersedia untuk dipesan. Stok habis atau waktu pengambilan sudah lewat.</div><a class="button full" href="{{ route('menu.index') }}">Cari menu lain <x-icon name="arrow"/></a>@endif
-    <p class="payment-note"><x-icon name="shield"/> Bayar di outlet. Tidak ada biaya layanan atau pengantaran.</p>
+    <x-pickup-notice :outlet="$meal->outlet"/><p class="payment-note"><x-icon name="shield"/> Bayar di outlet. Tidak ada biaya layanan atau pengantaran.</p>
     </div>
 </div></div>
 <section class="container section"><div class="section-heading"><div><span class="eyebrow">PILIHAN BAIK LAINNYA</span><h2>Mungkin kamu <em>juga suka.</em></h2></div></div><div class="meal-grid">@foreach($related as $meal)<x-meal-card :meal="$meal"/>@endforeach</div></section>

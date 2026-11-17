@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\MealCopyController;
+use App\Http\Controllers\Admin\OutletController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatalogController;
@@ -14,7 +18,10 @@ Route::get('/menu/{meal:slug}', [CatalogController::class, 'show'])->name('menu.
 Route::get('/tim/{creator}/foto', [CreatorController::class, 'photo'])->name('creators.photo');
 Route::get('/outlet', [CatalogController::class, 'outlets'])->name('outlets');
 Route::get('/tentang', [CatalogController::class, 'about'])->name('about');
+Route::get('/admin', fn () => redirect()->route('admin.index'))->name('admin.entry');
 Route::middleware('guest')->group(function () {
+    Route::get('/admin/masuk', [LoginController::class, 'create'])->name('admin.login');
+    Route::post('/admin/masuk', [LoginController::class, 'store'])->middleware('throttle:login')->name('admin.login.store');
     Route::get('/masuk', [AuthController::class, 'login'])->name('login');
     Route::post('/masuk', [AuthController::class, 'authenticate'])->middleware('throttle:login')->name('login.store');
     Route::get('/daftar', [AuthController::class, 'register'])->name('register');
@@ -31,6 +38,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/tim', [CreatorController::class, 'index'])->name('creators');
         Route::post('/tim/{creator}', [CreatorController::class, 'update'])->name('creators.update');
         Route::get('/', [AdminController::class, 'index'])->name('index');
+        Route::get('/pesanan', [AdminController::class, 'orders'])->name('orders');
+        Route::get('/laporan', [ReportController::class, 'index'])->name('reports');
+        Route::get('/laporan/unduh', [ReportController::class, 'export'])->name('reports.export');
+        Route::resource('/outlet', OutletController::class)->parameters(['outlet' => 'outlet'])->names('outlets')->except(['show', 'destroy']);
+        Route::get('/salin-menu', [MealCopyController::class, 'create'])->name('copy.create');
+        Route::post('/salin-menu', [MealCopyController::class, 'store'])->name('copy.store');
         Route::get('/menu', [AdminController::class, 'meals'])->name('meals');
         Route::get('/menu/tambah', [AdminController::class, 'create'])->name('create');
         Route::post('/menu', [AdminController::class, 'store'])->name('store');

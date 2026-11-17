@@ -8,8 +8,8 @@
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ asset('css/app.css').'?v='.filemtime(public_path('css/app.css')) }}">
+    <script src="{{ asset('js/app.js').'?v='.filemtime(public_path('js/app.js')) }}" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Lewati ke konten</a>
@@ -44,7 +44,7 @@
     <div class="container footer-main">
         <div><a class="brand" href="{{ route('home') }}">Saji Baik<span class="brand-dot">.</span></a><p>Perut kenyang. Pikiran tenang.<br>Kebaikan yang bisa kamu jangkau.</p></div>
         <div><h4>Jelajahi</h4><a href="{{ route('menu.index') }}">Menu hari ini</a><a href="{{ route('outlets') }}">Temukan outlet</a><a href="{{ route('orders.index') }}">Pesanan saya</a></div>
-        <div><h4>Kenalan dulu</h4><a href="{{ route('about') }}">Cerita Saji Baik</a><a href="{{ route('about') }}#cara-kerja">Cara pesan</a><a href="{{ route('about') }}#pertanyaan">Pertanyaan umum</a></div>
+        <div><h4>Kenalan dulu</h4><a href="{{ route('about') }}">Cerita Saji Baik</a><a href="{{ route('about') }}#cara-kerja">Cara pesan</a><a href="{{ route('about') }}#pertanyaan">Pertanyaan umum</a><a href="{{ route('admin.login') }}">Masuk pengelola</a></div>
         <div class="footer-note"><span class="eyebrow">DARI DAPUR, UNTUK SESAMA</span><p>Untuk mahasiswa, pekerja, dan orang dewasa yang merasa terbantu dengan makanan lebih terjangkau.</p><span class="sdg-mini">SDG 2 · Tanpa Kelaparan</span></div>
     </div>
     <div class="container footer-bottom"><span>© {{ date('Y') }} Saji Baik. Seporsi untuk sesama.</span><span>Versi demo · Menu, harga, dan outlet adalah ilustrasi.</span></div>

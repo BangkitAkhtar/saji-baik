@@ -45,6 +45,7 @@ class OrderController extends Controller
                 'unit_price' => $fresh->price, 'total_price' => $fresh->price * $data['quantity'],
                 'pickup_at' => Carbon::parse($fresh->available_date->format('Y-m-d').' '.$data['pickup_time']),
                 'notes' => $data['notes'] ?? null, 'status' => 'pending',
+                'pickup_deadline_at' => Carbon::parse($fresh->available_date->format('Y-m-d').' '.$data['pickup_time'])->addMinutes($fresh->outlet->pickup_grace_minutes ?? 30)->min(Carbon::parse($fresh->available_date->format('Y-m-d').' '.$fresh->outlet->closes_at)),
             ]);
         }, 3);
 
@@ -75,9 +76,9 @@ class OrderController extends Controller
                 throw ValidationException::withMessages(['order' => 'Pesanan ini tidak dapat dibatalkan. Hubungi petugas outlet.']);
             }
             $fresh->update(['status' => 'cancelled']);
-            Meal::whereKey($fresh->meal_id)->increment('stock', $fresh->quantity);
+            Meal::whereKey($fresh->meal_id)->whereDate('available_date', $fresh->pickup_at->toDateString())->increment('stock', $fresh->quantity);
         }, 3);
 
-        return back()->with('success','Pesanan dibatalkan. Porsinya kembali tersedia untuk orang lain.');
+        return back()->with('success', 'Pesanan dibatalkan. Porsinya kembali tersedia untuk orang lain.');
     }
 }

@@ -10,7 +10,21 @@ button.textContent=input.type==='password'?'Lihat':'Sembunyikan';
 button.setAttribute('aria-label',input.type==='password'?'Tampilkan kata sandi':'Sembunyikan kata sandi');
 }));
 document.querySelectorAll('[data-confirm]').forEach(form=>form.addEventListener('submit',event=>{
-if(!window.confirm(form.dataset.confirm))event.preventDefault();
+if(form.dataset.confirmed==='yes'){delete form.dataset.confirmed;return;}
+event.preventDefault();
+const submitter=event.submitter;
+const dialog=document.createElement('dialog');
+dialog.className='confirm-dialog';
+const heading=document.createElement('h2');heading.textContent='Konfirmasi tindakan';
+const message=document.createElement('p');message.textContent=form.dataset.confirm;
+const actions=document.createElement('div');actions.className='confirm-dialog-actions';
+const cancel=document.createElement('button');cancel.type='button';cancel.className='button outline';cancel.textContent='Kembali';
+const confirm=document.createElement('button');confirm.type='button';confirm.className='button';confirm.textContent='Ya, lanjutkan';
+actions.append(cancel,confirm);dialog.append(heading,message,actions);document.body.append(dialog);
+cancel.addEventListener('click',()=>dialog.close());
+confirm.addEventListener('click',()=>{form.dataset.confirmed='yes';dialog.close();if(submitter){form.requestSubmit(submitter);}else{form.requestSubmit();}});
+dialog.addEventListener('close',()=>dialog.remove());
+dialog.showModal();cancel.focus();
 }));
 const checkout=document.querySelector('[data-checkout]');
 if(checkout){

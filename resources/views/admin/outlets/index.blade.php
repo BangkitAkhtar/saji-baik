@@ -1,0 +1,5 @@
+@extends('layouts.admin')
+@section('title','Outlet')
+@section('content')
+<div class="admin-page-heading"><div><span class="eyebrow">DAPUR-DAPUR SAJI BAIK</span><h1>Atur outlet,<br><em>dekatkan kebaikan.</em></h1><p>Kelola alamat, jam buka, dan petunjuk pengambilan untuk outlet contoh.</p></div><a class="button" href="{{ route('admin.outlets.create') }}">+ Tambah outlet</a></div><div class="admin-outlet-grid">@foreach($outlets as $outlet)<article class="admin-panel admin-outlet-card"><div class="outlet-photo"><img src="{{ asset('images/'.$outlet->image) }}" alt="Ilustrasi AI outlet Saji Baik"><span>Ilustrasi AI · Outlet dummy</span></div><div class="admin-outlet-info"><span class="status {{ $outlet->is_active?'status-ready':'status-cancelled' }}">{{ $outlet->is_active?'Aktif':'Nonaktif' }}</span><h2>{{ $outlet->name }}</h2><p>{{ $outlet->address }}</p><p>{{ $outlet->opens_at }}–{{ $outlet->closes_at }} WIB · {{ $outlet->meals_count }} menu tersimpan</p><a class="button outline full small" href="{{ route('admin.outlets.edit',$outlet) }}">Edit outlet <x-icon name="arrow"/></a></div></article>@endforeach</div>
+@endsection

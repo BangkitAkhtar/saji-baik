@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title',$meal->exists?'Edit menu':'Tambah menu')
 @section('content')
 <section class="container section compact"><a class="back-link" href="{{ route('admin.meals') }}">← Kelola menu</a><div class="section-heading"><div><span class="eyebrow">DARI DAPUR HARI INI</span><h1>{{ $meal->exists?'Perbarui':'Tambah' }} <em>menu baik.</em></h1></div></div>

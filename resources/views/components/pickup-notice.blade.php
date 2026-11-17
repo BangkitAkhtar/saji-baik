@@ -1,0 +1,2 @@
+@props(['outlet'=>null])
+<div class="pickup-disclaimer"><x-icon name="clock"/><div><strong>Ambil tepat waktu, agar seporsimu tetap terjaga.</strong><p>Datang sesuai jadwal. Toleransi pengambilan {{ $outlet?->pickup_grace_minutes ?? 30 }} menit setelah waktu pilihanmu, dan tidak melewati jam tutup outlet. Jika berhalangan, hubungi petugas sebelum batas ambil. Pesanan yang melewati batas dapat ditandai “Tidak diambil”; ketersediaan makanan setelahnya perlu dikonfirmasi ke petugas.</p></div></div>

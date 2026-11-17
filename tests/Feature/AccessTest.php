@@ -62,13 +62,13 @@ class AccessTest extends TestCase
         $this->get(route('admin.meals'))->assertOk();
         $this->get(route('admin.create'))->assertOk();
         $this->get(route('admin.edit', $meal))->assertOk();
-        $this->post(route('admin.store'), ['name' => 'Nasi Tempe Baru', 'outlet_id' => $meal->outlet_id, 'description' => 'Pilihan nabati', 'category' => 'Tanpa daging', 'price' => 9000, 'stock' => 25, 'available_date' => today()->format('Y-m-d'), 'pickup_start' => '11:00', 'pickup_end' => '19:00', 'components_text' => 'Nasi, Tempe, Sayur', 'allergens' => 'Kedelai', 'calories' => 450, 'protein' => 18, 'image' => 'nasi-lengkap.jpg', 'is_active' => 1])->assertRedirect(route('admin.meals'));
+        $this->post(route('admin.store'), ['name' => 'Nasi Tempe Baru', 'outlet_id' => $meal->outlet_id, 'description' => 'Pilihan nabati', 'category' => 'Tanpa daging', 'price' => 9000, 'stock' => 25, 'available_date' => today()->format('Y-m-d'), 'pickup_start' => '11:00', 'pickup_end' => '19:00', 'components_text' => 'Nasi, Tempe, Sayur', 'allergens' => 'Kedelai', 'calories' => 450, 'protein' => 18, 'image' => 'nasi-lengkap.jpg', 'is_active' => 1])->assertRedirect(route('admin.meals', ['date' => today()->toDateString()]));
         $this->assertDatabaseHas('meals', ['name' => 'Nasi Tempe Baru', 'price' => 9000, 'stock' => 25, 'is_active' => true]);
     }
 
     public function test_order_free_text_is_escaped(): void
     {
         $order = Order::factory()->create(['customer_name' => '<script>alert(1)</script>', 'notes' => '<img src=x onerror=alert(1)>']);
-        $this->actingAs($order->user)->get(route('orders.show', $order->code))->assertOk()->assertSee('&lt;script&gt;', false)->assertDontSee('<script>alert(1)</script>', false)->assertSee('&lt;img', false)->assertDontSee('<img src=x',false);
+        $this->actingAs($order->user)->get(route('orders.show', $order->code))->assertOk()->assertSee('&lt;script&gt;', false)->assertDontSee('<script>alert(1)</script>', false)->assertSee('&lt;img', false)->assertDontSee('<img src=x', false);
     }
 }
