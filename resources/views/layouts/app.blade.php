@@ -45,7 +45,7 @@
         <div><a class="brand" href="{{ route('home') }}">Saji Baik<span class="brand-dot">.</span></a><p>Perut kenyang. Pikiran tenang.<br>Kebaikan yang bisa kamu jangkau.</p></div>
         <div><h4>Jelajahi</h4><a href="{{ route('menu.index') }}">Menu hari ini</a><a href="{{ route('outlets') }}">Temukan outlet</a><a href="{{ route('orders.index') }}">Pesanan saya</a></div>
         <div><h4>Kenalan dulu</h4><a href="{{ route('about') }}">Cerita Saji Baik</a><a href="{{ route('about') }}#cara-kerja">Cara pesan</a><a href="{{ route('about') }}#pertanyaan">Pertanyaan umum</a><a href="{{ route('admin.login') }}">Masuk pengelola</a></div>
-        <div class="footer-note"><span class="eyebrow">DARI DAPUR, UNTUK SESAMA</span><p>Untuk mahasiswa, pekerja, dan orang dewasa yang merasa terbantu dengan makanan lebih terjangkau.</p><span class="sdg-mini">SDG 2 · Tanpa Kelaparan</span></div>
+        <div class="footer-note"><span class="eyebrow">DARI DAPUR, UNTUK SESAMA</span><p>Untuk mahasiswa, pekerja, dan orang dewasa yang merasa terbantu dengan makanan lebih terjangkau.</p><span class="sdg-mini">SDG 2 · Zero Hunger</span></div>
     </div>
     <div class="container footer-bottom"><span>© {{ date('Y') }} Saji Baik. Seporsi untuk sesama.</span><span>Versi demo · Menu, harga, dan outlet adalah ilustrasi.</span></div>
 </footer>
