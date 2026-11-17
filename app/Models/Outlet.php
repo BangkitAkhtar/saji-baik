@@ -12,6 +12,12 @@ class Outlet extends Model
 {
     use HasFactory;
 
+    public const IMAGE_OPTIONS = [
+        'outlet-alam-sutera.jpg' => 'Tugu Alam Sutera',
+        'outlet-kemanggisan.jpg' => 'Gedung BINUS',
+        'outlet-illustration.png' => 'Dapur Saji Baik',
+    ];
+
     protected function casts(): array
     {
         return ['is_active' => 'boolean'];

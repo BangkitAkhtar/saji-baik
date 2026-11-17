@@ -29,8 +29,8 @@ class DatabaseSeeder extends Seeder
             User::firstOrCreate(['email' => 'teman@sajibaik.test'], ['name' => 'Teman Saji', 'password' => 'SajiBaik!2026', 'phone' => '081234567891']);
         }
         $locations = [
-            ['name' => 'Dapur Alam Sutera', 'area' => 'Alam Sutera', 'address' => 'Jl. Jalur Sutera Barat No. 12, Tangerang', 'description' => 'Dekat area kampus. Cari papan Saji Baik di meja depan.'],
-            ['name' => 'Dapur Kemanggisan', 'area' => 'Kemanggisan', 'address' => 'Jl. Kebon Jeruk Raya No. 8, Jakarta Barat', 'description' => 'Di area warung makan, pengambilan melalui kasir utama.'],
+            ['name' => 'Dapur Alam Sutera', 'image' => 'outlet-alam-sutera.jpg', 'area' => 'Alam Sutera', 'address' => 'Jl. Jalur Sutera Barat No. 12, Tangerang', 'description' => 'Dekat area kampus. Cari papan Saji Baik di meja depan.'],
+            ['name' => 'Dapur Kemanggisan', 'image' => 'outlet-kemanggisan.jpg', 'area' => 'Kemanggisan', 'address' => 'Jl. Kebon Jeruk Raya No. 8, Jakarta Barat', 'description' => 'Di area warung makan, pengambilan melalui kasir utama.'],
             ['name' => 'Dapur Gading Serpong', 'area' => 'Gading Serpong', 'address' => 'Jl. Boulevard Gading Serpong No. 21, Tangerang', 'description' => 'Masuk dari pintu depan ruko, lalu tunjukkan kode ambil.'],
         ];
         $outlets = collect($locations)->map(fn ($d) => Outlet::firstOrCreate(['name' => $d['name']], $d));

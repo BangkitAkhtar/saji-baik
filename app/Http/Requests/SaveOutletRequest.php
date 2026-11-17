@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Outlet;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -23,7 +24,7 @@ class SaveOutletRequest extends FormRequest
             'opens_at' => ['required', 'date_format:H:i'],
             'closes_at' => ['required', 'date_format:H:i', 'after:opens_at'],
             'pickup_grace_minutes' => ['required', 'integer', 'min:0', 'max:60'],
-            'image' => ['required', Rule::in(['outlet-illustration.png'])],
+            'image' => ['required', Rule::in(array_keys(Outlet::IMAGE_OPTIONS))],
             'is_active' => ['sometimes', 'boolean'],
         ];
     }

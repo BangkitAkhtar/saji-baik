@@ -67,7 +67,7 @@ Data database, .env, unggahan pribadi, cadangan, cache, log, dan vendor tidak di
 
 Seluruh outlet, harga, dan menu dalam seeder adalah ilustrasi dan belum menerima transaksi sungguhan. Nilai gizi adalah estimasi, bukan hasil uji laboratorium. Foto hanya ilustrasi penyajian.
 
-Foto outlet outlet-illustration.png dibuat dengan AI (tool bawaan), berisi dapur warteg fiktif dengan papan Saji Baik, warna krem dan hijau, serta cahaya siang. Gambar yang sama dipakai untuk outlet dummy dan diberi label ilustrasi AI.
+Foto area Alam Sutera dan gedung BINUS disediakan pengguna. Outlet Gading Serpong memakai outlet-illustration.png, gambar dapur warteg fiktif yang dibuat dengan AI. Seluruh data gerai tetap berupa contoh demonstrasi.
 
 Sumber gambar menu contoh:
 - nasi-ayam.jpg: https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3cde3e28-af0a-4715-b618-0f3399599b2d_Go-Food-Merchant_20250506_094624.jpeg
