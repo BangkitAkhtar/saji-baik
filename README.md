@@ -1,6 +1,6 @@
 # Saji Baik
 
-Website Laravel untuk makanan harian yang lebih terjangkau bagi mahasiswa, pekerja, pencari kerja, dan orang dewasa yang merasa membutuhkan. Fokus SDG 2, dengan perencanaan porsi yang mendukung arah SDG 12. Inisiatif mandiri, bukan program MBG pemerintah.
+Website Laravel untuk makanan harian yang lebih terjangkau bagi mahasiswa, pekerja, pencari kerja, dan orang dewasa yang merasa membutuhkan. Fokus SDG 2 — Tanpa Kelaparan: memperluas akses makanan bergizi dan terjangkau. Inisiatif mandiri, bukan program MBG pemerintah.
 
 ## Fitur
 
@@ -46,7 +46,7 @@ Menu memiliki tanggal ketersediaan dan stok harian. Pengelola perlu memperbarui 
 - Pharrel Jibril Tristan — 2802393964
 - Bangkit Ahktar Fahd — 2802401625
 
-Foto asli belum disediakan. Kartu menampilkan inisial sampai pengelola mengunggah foto masing-masing di /mitra/tim. Foto tersimpan pada penyimpanan lokal, bukan pada repositori.
+Foto tim bawaan tersedia pada public/images/creators dan dipasangkan berdasarkan NIM. Foto dapat diganti melalui /mitra/tim; foto pengganti tersimpan pada penyimpanan lokal dan tidak ikut masuk repositori.
 
 ## Pengujian
 

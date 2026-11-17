@@ -16,7 +16,7 @@ class CreatorTest extends TestCase
     public function test_names_and_student_ids_are_visible_in_footer_and_about(): void
     {
         $this->seed();
-        $this->get('/tentang')->assertOk()->assertSee('Aviel Aquino')->assertSee('Kent Nathan Herlambang')->assertSee('Pharrel Jibril Tristan')->assertSee('Bangkit Ahktar Fahd')->assertSee('2802393711')->assertSee('2802397464')->assertSee('2802393964')->assertSee('2802401625')->assertSee('Foto belum ditambahkan');
+        $this->get('/tentang')->assertOk()->assertSee('Aviel Aquino')->assertSee('Kent Nathan Herlambang')->assertSee('Pharrel Jibril Tristan')->assertSee('Bangkit Ahktar Fahd')->assertSee('2802393711')->assertSee('2802397464')->assertSee('2802393964')->assertSee('2802401625')->assertSee('images/creators/aviel.png')->assertSee('images/creators/kent.png')->assertSee('images/creators/pharrel.jpg')->assertSee('images/creators/bangkit.png');
     }
 
     public function test_admin_can_upload_real_creator_photo(): void
