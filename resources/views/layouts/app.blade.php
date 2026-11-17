@@ -16,7 +16,7 @@
 <div class="announcement">Seporsi kebaikan untuk hari yang lebih ringan. <span>Mulai Rp8.000 ✦ Ambil di outlet</span></div>
 <header class="site-header">
     <div class="container nav-wrap">
-        <a class="brand" href="{{ route('home') }}"><span class="brand-mark"><x-icon name="bowl"/></span>saji<span class="brand-light">baik</span><span class="brand-dot">.</span></a>
+        <a class="brand" href="{{ route('home') }}">Saji Baik<span class="brand-dot">.</span></a>
         <button class="menu-toggle icon-button" aria-label="Buka navigasi" aria-expanded="false" aria-controls="navigation"><x-icon name="menu"/></button>
         <nav id="navigation" aria-label="Navigasi utama">
             <a class="{{ request()->routeIs('home')?'active':'' }}" href="{{ route('home') }}">Beranda</a>
@@ -42,12 +42,11 @@
 </main>
 <footer>
     <div class="container footer-main">
-        <div><a class="brand" href="{{ route('home') }}"><span class="brand-mark"><x-icon name="bowl"/></span>saji<span class="brand-light">baik</span>.</a><p>Perut kenyang. Pikiran tenang.<br>Kebaikan yang bisa kamu jangkau.</p></div>
+        <div><a class="brand" href="{{ route('home') }}">Saji Baik<span class="brand-dot">.</span></a><p>Perut kenyang. Pikiran tenang.<br>Kebaikan yang bisa kamu jangkau.</p></div>
         <div><h4>Jelajahi</h4><a href="{{ route('menu.index') }}">Menu hari ini</a><a href="{{ route('outlets') }}">Temukan outlet</a><a href="{{ route('orders.index') }}">Pesanan saya</a></div>
         <div><h4>Kenalan dulu</h4><a href="{{ route('about') }}">Cerita Saji Baik</a><a href="{{ route('about') }}#cara-kerja">Cara pesan</a><a href="{{ route('about') }}#pertanyaan">Pertanyaan umum</a></div>
         <div class="footer-note"><span class="eyebrow">DARI DAPUR, UNTUK SESAMA</span><p>Untuk mahasiswa, pekerja, dan orang dewasa yang merasa terbantu dengan makanan lebih terjangkau.</p><span class="sdg-mini">SDG 2 · Tanpa Kelaparan</span></div>
     </div>
-    <div class="container footer-creators"><div><span class="eyebrow">DIBUAT DENGAN KEPEDULIAN</span><h4>Tim creator Saji Baik</h4><a class="link-arrow" href="{{ route('about') }}#tim">Kenalan dengan kami <x-icon name="arrow"/></a></div><div class="footer-creator-list">@foreach($creators as $creator)<div><strong>{{ $creator->name }}</strong><span>{{ $creator->student_id }}</span></div>@endforeach</div></div>
     <div class="container footer-bottom"><span>© {{ date('Y') }} Saji Baik. Seporsi untuk sesama.</span><span>Versi demo · Menu, harga, dan outlet adalah ilustrasi.</span></div>
 </footer>
 </body></html>
